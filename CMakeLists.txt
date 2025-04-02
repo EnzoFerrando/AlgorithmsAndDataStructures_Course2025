@@ -15,7 +15,22 @@ endif()
 file(GLOB_RECURSE SRC_FILES "${CMAKE_SOURCE_DIR}/src/*.cpp")
 
 # Define el ejecutable y sus archivos fuente
-add_executable(${CMAKE_PROJECT_NAME} ${SRC_FILES})
+add_executable(${CMAKE_PROJECT_NAME} ${SRC_FILES}
+        src/Personaje.cpp
+        include/Personaje.h
+        src/Vault_TecRefugiado.cpp
+        include/Vault_TecRefugiado.h
+        src/HermandadDelAcero.cpp
+        include/HermandadDelAcero.h
+        src/MercaderDeAgua.cpp
+        include/MercaderDeAgua.h
+        src/Enemigo.cpp
+        include/Enemigo.h
+        src/Gohul.cpp
+        include/Gohul.h
+        src/Saqueador.cpp
+        include/Saqueador.h
+)
 
 # Establece el directorio de inclusión para los archivos de cabecera usando target_include_directories
 target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE "${CMAKE_SOURCE_DIR}/include")

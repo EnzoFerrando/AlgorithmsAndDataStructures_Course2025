@@ -2,6 +2,8 @@
 #include <iostream>
 #include <thread>
 
+#include "Vault_TecRefugiado.h"
+#include "HermandadDelAcero.h"
 #include "engine.hpp"
 
 auto constexpr HELP_FILE {"assets/help.txt"}; //< Nombre del archivo de ayuda
