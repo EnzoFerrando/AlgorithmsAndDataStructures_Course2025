@@ -11,6 +11,8 @@
 #include <string_view>
 #include <thread>
 #include <unordered_map>
+#include <queue.hpp>
+#include <Evento.h>
 
 #ifdef _WIN32
 #include <windows.h>
@@ -39,6 +41,10 @@ class Refugio;
 class Engine
 {
 public:
+    Queue<std::string> messageQueue; // Cola de mensajes para mostrar
+
+    void cargarMensajes(TipoEvento tipoEvento);
+    void procesarMensajes();
     /**
      * @brief: Inicializa el motor del juego
      */
@@ -82,6 +88,8 @@ public:
     const EngineData::PlayerInfo& playerInfo() const;
 
 private:
+
+    std::string obtenerMensajePorEvento(TipoEvento tipoEvento);
     /**
      * @brief: Inicializa los recursos del tablero
      */

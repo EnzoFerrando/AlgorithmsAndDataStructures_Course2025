@@ -41,7 +41,8 @@ private:
         }
 
         delete[] m_data;
-        m_data = newData;
+        m_data = newData; //falta actualizar la capacidad
+        //m_capacity = newCapacity;
     }
 
 public:
@@ -73,7 +74,12 @@ public:
             resize();
         }
 
-        m_data[m_size++] = data;
+        m_data[m_size++] = data; //deberia ser m_data[m_size] y actualizar m_size abajo:
+        /*
+        m_data[m_size] = data ;      (es una correccion vieja, si no entendi mal es lo mismo hacer
+        m_size++;                     cualquiera de los dos casos)
+        */
+
     }
 
     /**
@@ -87,7 +93,11 @@ public:
             resize();
         }
 
-        m_data[m_size++] = std::move(data);
+        m_data[m_size++] = std::move(data); //deberia ser m_data[m_size] y actualizar m_size abajo:
+        /*
+        m_data[m_size]=std::move(data);    (es una correccion vieja, si no entendi mal es lo mismo hacer
+         m_size++;                          cualquiera de los dos casos)
+         */
     }
 
     /**
@@ -112,7 +122,11 @@ public:
      * @brief: Obtener un elemento del vector
      */
     TData& operator[](size_t index)
-    {
+        {
+        /*
+        if (index >= m_size)    //falta manejar el caso de que se quiera obtener un elemento fuera del rango del vector
+         return 0;
+       */
         return m_data[index];
     }
 
@@ -121,6 +135,10 @@ public:
      */
     const TData& at(size_t index) const
     {
+        /*
+         if (index >= m_size)    //falta manejar el caso de que se quiera obtener un elemento fuera del rango del vector
+          return 0;
+        */
         return m_data[index];
     }
 

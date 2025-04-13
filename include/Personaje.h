@@ -25,7 +25,7 @@ class Personaje : public EntidadGenerica {
         std::cout<<"Edad: "<<m_age<<std::endl;
         std::cout<<"Salud: "<<m_health<<"/100"<<std::endl;
     }
-     void doAction() const override{}
+     virtual void doAction() const;
 
 };
 

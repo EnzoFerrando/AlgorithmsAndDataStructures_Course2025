@@ -33,8 +33,7 @@ class MercaderDeAgua : public Personaje {
         std::cout << "Nivel de negociacion: " << negotiationLvl_ <<"/10"<< std::endl;
         std::cout << "Reputacion: " << reputationLvl_ <<"/10" << std::endl;
     }
-    void doAction() const override
-    {
+    void doAction() const override{
         (waterStock_>0? std::cout<<"El mercader de agua esta disponile para vender":
             std::cout<<"El mercader no tiene agua para vender")<<std::endl;
     }
@@ -80,7 +79,9 @@ class MercaderDeAgua : public Personaje {
         if (deal)
             if(reputationLvl_<10) reputationLvl_++;
         else
+        {
             if(reputationLvl_>0) reputationLvl_--;
+        }
     }
 };
 

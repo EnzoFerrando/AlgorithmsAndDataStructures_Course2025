@@ -33,7 +33,7 @@ public: Gohul(std::string name,
         std::cout << "Resistencia a la radiacion: " << radiationResistance_<<"/100" << std::endl;
         std::cout<<(isFeral_) ? "¡El gohul es salvaje!": "El gohul aun es racional"<<std::endl;
     }
-    void doAction() const override
+    void doAction() const
     {
         std::cout<<m_name<<(isFeral_) ?" esta atacando a todo aquel que se le acerque":" esta escondido en busca de sobrevivir"<<std::endl;
     }

@@ -30,6 +30,8 @@ add_executable(${CMAKE_PROJECT_NAME} ${SRC_FILES}
         include/Gohul.h
         src/Saqueador.cpp
         include/Saqueador.h
+        src/Evento.cpp
+        include/Evento.h
 )
 
 # Establece el directorio de inclusión para los archivos de cabecera usando target_include_directories

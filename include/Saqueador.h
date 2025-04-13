@@ -12,7 +12,7 @@ class Saqueador : public Enemigo {
     std::string weaponName_; //el arma que tiene equipada (revolver, escopeta, cuchillo,etc)
     int weaponLvl_; //nivel del arma equipada (1-10)
 
-    public Saqueador (std::string name, const int health, const int attackPoints, std::string weakness,
+public : Saqueador (std::string name, const int health, const int attackPoints, std::string weakness,
         std::string gangName, std::string weaponName, const int weaponLvl):
         Enemigo (std::move(name), health, attackPoints, std::move(weakness)),
         gangName_(std::move(gangName)),

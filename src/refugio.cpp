@@ -58,7 +58,7 @@ void Refugio::registerVisitant(const std::string& nombre, const EngineData::Fact
 void Refugio::showVisits()
 {
     std::cout << "📖 Registro de visitas al Refugio " << m_name << ":\n";
-    printRecursive(m_visitants->get_head());
+    //printRecursive(m_visitants->get_head());
 }
 
 void Refugio::printRecursive(DoublyListNode<Visitante>* mNode)

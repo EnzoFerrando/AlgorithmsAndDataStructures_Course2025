@@ -80,7 +80,14 @@ public:
      */
     void dequeue()
     {
-        throw std::underflow_error("Queue is empty");
+        if(isEmpty()) //comprueba que la cola no este vacia
+            throw std::underflow_error("Queue is empty");
+        auto toDeleteNode = m_front; //nodo a eliminar
+        if (m_front==m_rear) //si hay solo un nodo en la cola
+            m_rear = nullptr; //el ultimo nodo sera puntero nulo
+        m_front = m_front->next; //si hay otro nodo en la cola el primero sera el siguiente; si no sera nulo
+        delete toDeleteNode;
+        --m_size;
     }
 
     /**
@@ -91,7 +98,9 @@ public:
      */
     TData front() const
     {
+        if (isEmpty())
         throw std::underflow_error("Queue is empty");
+        return m_front->data;
     }
 
     /**

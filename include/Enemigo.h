@@ -13,7 +13,7 @@ protected:
     int attackPoints_; //puntos de ataque, cuanto daño ataque puede causar
     std:: string weakness_; //nombre del tipo de arma que mas daño le genera
 
-    public Enemigo (std::string name, const int health, const int attackPoints, std::string weakness):
+public: Enemigo (std::string name, const int health, const int attackPoints, std::string weakness):
     EntidadGenerica(std::move(name)),
     health_(health),
     attackPoints_(attackPoints),
@@ -29,6 +29,5 @@ protected:
         std::cout<<"Puntos de ataque: "<<attackPoints_<<std::endl;
         std::cout<<"Debilidad: "<<weakness_<<std::endl;
     }
-    void doAction() const override;
 };
 #endif //ENEMIGO_H

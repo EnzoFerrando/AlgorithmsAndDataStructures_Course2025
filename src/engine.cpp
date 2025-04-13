@@ -2,10 +2,21 @@
 
 #include <fstream>
 
+void Engine::cargarMensajes(TipoEvento tipoEvento) {
+    Evento evento(tipoEvento, descripcionEvento(Evento{tipoEvento, ""}));
+    messageQueue.enqueue(evento.description_);
+}
+
+void Engine::procesarMensajes() {
+    while (!messageQueue.isEmpty()) {
+        std::cout << messageQueue.front() << std::endl;
+        messageQueue.dequeue();
+    }
+}
+
 void Engine::start()
 {
     m_randomGenerator = RandomEventGenerator();
-
     loadConfig();
 
     loadGame();

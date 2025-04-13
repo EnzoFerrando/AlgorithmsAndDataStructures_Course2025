@@ -45,7 +45,8 @@ public:
      */
     ~Stack()
     {
-        throw std::underflow_error("Stack is empty");
+        while (!isEmpty())
+         pop();
     }
 
     /**
@@ -67,11 +68,14 @@ public:
      */
     void pop()
     {
-        if (isEmpty())
+        if (isEmpty()) //verifica si la pila esta vacia
         {
             throw std::underflow_error("Stack is empty");
         }
-        throw std::underflow_error("Stack is empty");
+        auto* toDeleteNode = m_top; //crea un nuevo nodo y le asignamos la cima
+        m_top = m_top->next; //la nueva cima es el proximo
+        delete toDeleteNode; //eliminaa la anterior cima
+        --m_size; //actualiza el tamaño de la pila
     }
 
     /**
@@ -82,7 +86,9 @@ public:
      */
     TData& top()
     {
+        if (isEmpty())
         throw std::underflow_error("Stack is empty");
+        return m_top->data;
     }
 
     /**
@@ -93,7 +99,9 @@ public:
      */
     const TData& top() const
     {
+        if (isEmpty())
         throw std::underflow_error("Stack is empty");
+        return m_top->data;
     }
 
     /**
